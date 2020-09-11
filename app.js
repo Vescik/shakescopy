@@ -50,16 +50,25 @@ function User(name,strength, agility, intelligence){
     this.intelligence = intelligence
 
 }// stat upgrade probably doesn't work
-function statsUpgrade(chosenClass){
-    upgradeBtn.forEach(keys =>{
+    function statsUpgrade(chosenClass){
+        upgradeBtn.forEach(keys =>{
+    keys.addEventListener('click', function () {
+        if(keys.dataset.class === 'agi'){
+            player.agility += 1;
+            value[0].innerHTML = player.agility;
+        }else if(keys.dataset.class === 'str'){
+            player.strength += 1;
+            value[1].innerHTML = player.strength;
+        }else if(keys.dataset.class === 'int'){
+            player.intelligence += 1;
+            value[2].innerHTML = player.intelligence;
+        }
 
-    });
-
-    console.log(chosenClass);
-    return player.strength++;
-}
+    })
+        });
+    }
 function setStat(chosenClass) {
-    characterName.innerHTML = chosenClass.name
+    characterName.innerHTML = chosenClass.name;
     value[0].innerHTML = chosenClass.agility;
     value[1].innerHTML = chosenClass.strength;
     value[2].innerHTML = chosenClass.intelligence;
